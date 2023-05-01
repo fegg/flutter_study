@@ -14,7 +14,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("测试 Scaffold"),
+        title: const Text("App Name"),
         leading: Builder(builder: (context) {
           return IconButton(
             icon: const Icon(Icons.dashboard, color: Colors.white),
@@ -29,8 +29,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               showDialog(
                   context: context,
                   builder: (context) {
-                    return AlertDialog(
-                      content: const Text("分享"),
+                    return const AlertDialog(
+                      content: Text("分享拉运线路"),
                     );
                   });
             },
@@ -44,23 +44,55 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.home),
+            InkWell(
+              onTap: () {},
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.home_outlined, color: Colors.grey),
+                  Text("任务"),
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 40,
-              child: const Icon(Icons.add),
+            InkWell(
+              onTap: () {},
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.home_outlined, color: Colors.grey),
+                  Text("运单"),
+                ],
+              ),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.business),
+            const SizedBox(),
+            InkWell(
+              onTap: () {},
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.home_outlined, color: Colors.grey),
+                  Text("消息"),
+                ],
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.home_outlined, color: Colors.grey),
+                  Text("我的"),
+                ],
+              ),
             ),
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.camera_alt),
+      ),
       // bottomNavigationBar: BottomNavigationBar(
       //   items: const [
       //     BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -75,10 +107,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       //       _selectItemIndex = index;
       //     });
       //   },
-      // ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   child: const Icon(Icons.add),
       // ),
     );
   }
@@ -105,22 +133,28 @@ class MyDrawer extends StatelessWidget {
                       child: Image.asset("assets/images/avatar.png", width: 80),
                     ),
                   ),
-                  Text("sky", style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("司机张三", style: TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
             Expanded(
-              child: ListView(
-                children: const [
-                  ListTile(
-                    leading: Icon(Icons.add),
-                    title: Text("Add account"),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text("Manage accounts"),
-                  ),
-                ],
+              child: Scrollbar(
+                child: ListView(
+                  children: const [
+                    ListTile(
+                      leading: Icon(Icons.person),
+                      title: Text("我的信息"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.add_circle_outline),
+                      title: Text("添加车辆"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.settings),
+                      title: Text("软件设置"),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

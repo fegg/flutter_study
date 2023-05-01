@@ -1,3 +1,5 @@
+import 'package:data_test/components/infinite_list_view_route.dart';
+import 'package:data_test/components/list_view_controller_route.dart';
 import 'package:data_test/components/process_test_route.dart';
 import 'package:data_test/form/form_test_route.dart';
 import 'package:data_test/route/scaffold_route.dart';
@@ -52,6 +54,28 @@ class _ParentWidgetState extends State<ParentWidget> {
           child: const Text("ProcessTestRoute"),
         ),
         ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return const InfiniteListViewRoute();
+              }),
+            );
+          },
+          child: const Text("无限滚动测试"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) {
+                return ListViewControllerRoute();
+              }),
+            );
+          },
+          child: const Text("滚动控制测试"),
+        ),
+        ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -72,8 +96,8 @@ class _ParentWidgetState extends State<ParentWidget> {
               },
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  gradient:
-                  LinearGradient(colors: [Colors.red, Colors.orange.shade700]),
+                  gradient: LinearGradient(
+                      colors: [Colors.red, Colors.orange.shade700]),
                   borderRadius: BorderRadius.circular(4.0),
                   boxShadow: const [
                     BoxShadow(
@@ -92,8 +116,7 @@ class _ParentWidgetState extends State<ParentWidget> {
                   ),
                 ),
               ),
-            )
-        )
+            ))
       ],
     );
   }
